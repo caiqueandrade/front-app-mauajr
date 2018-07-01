@@ -10,6 +10,8 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { LoginPage } from '../pages/login/login';
 import { ProjetosPage } from '../pages/projetos/projetos';
+import { HttpClientModule } from '@angular/common/http';
+import { ProjetosServiceProvider } from '../providers/projetos-service/projetos-service';
 
 @NgModule({
   declarations: [
@@ -21,6 +23,7 @@ import { ProjetosPage } from '../pages/projetos/projetos';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     IonicModule.forRoot(MyApp),
   ],
   bootstrap: [IonicApp],
@@ -34,7 +37,8 @@ import { ProjetosPage } from '../pages/projetos/projetos';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    ProjetosServiceProvider
   ]
 })
 export class AppModule {}
