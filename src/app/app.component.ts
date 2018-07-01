@@ -5,6 +5,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
+import { LoginPage } from '../pages/login/login';
+import { ProjetosPage } from '../pages/projetos/projetos';
 
 @Component({
   templateUrl: 'app.html'
@@ -21,8 +23,12 @@ export class MyApp {
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Home', component: HomePage },
-      { title: 'List', component: ListPage }
+      // { title: 'Home', component: HomePage },
+      // { title: 'List', component: ListPage },
+      { title: 'Novo Projeto', component: HomePage },
+      { title: 'Departamentos', component: HomePage },
+      { title: 'Projetos', component: ProjetosPage },
+      { title: 'Configurações', component: HomePage }
     ];
 
   }
@@ -36,9 +42,14 @@ export class MyApp {
     });
   }
 
-  openPage(page) {
-    // Reset the content nav to have just this page
-    // we wouldn't want the back button to show in this scenario
-    this.nav.setRoot(page.component);
+  irPagina(p){
+    console.log(p);
+    this.nav.push(p.component);
   }
+
+  // openPage(page) {
+  //   // Reset the content nav to have just this page
+  //   // we wouldn't want the back button to show in this scenario
+  //   this.nav.setRoot(page.component);
+  // }
 }
