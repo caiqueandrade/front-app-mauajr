@@ -7,11 +7,10 @@ export class ProjetosServiceProvider {
 
   private _url = 'http://127.0.0.1:8000/api'
 
-  constructor(private _http: HttpClient) {
-  }
+  constructor(private _http: HttpClient) {  }
 
   list(){
-    return this._http.get<Projeto[]>('http://127.0.0.1:8000/api/projetos')
+    return this._http.get<Projeto[]>(this._url + '/projetos');
   }
 
   cadastrarProjeto(projeto){

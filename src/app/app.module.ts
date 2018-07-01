@@ -18,6 +18,7 @@ import { UsuariosServiceProvider } from '../providers/usuarios-service/usuarios-
 
 import 'rxjs/add/operator/finally';
 import 'rxjs/add/operator/do';
+import { ClientesServiceProvider } from '../providers/clientes-service/clientes-service';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import 'rxjs/add/operator/do';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     ProjetosServiceProvider,
     AreasServiceProvider,
-    UsuariosServiceProvider
+    UsuariosServiceProvider,
+    ClientesServiceProvider
   ]
 })
 export class AppModule {}

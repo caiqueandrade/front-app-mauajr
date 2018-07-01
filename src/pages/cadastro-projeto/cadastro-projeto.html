@@ -28,6 +28,24 @@
       <ion-label stacked>Status:</ion-label>
       <ion-input [(ngModel)]="status" name="status"></ion-input>
     </ion-item>
+
+    <ion-item>
+      <ion-label>Cliente</ion-label>
+      <ion-select>
+        <ion-option *ngFor="let cliente of clientes">
+          {{ cliente.nome }}
+        </ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+        <ion-label>Faturamento</ion-label>
+        <ion-select>
+          <ion-option *ngFor="let faturamento of faturamentos">
+            {{ faturamento.valor }}
+          </ion-option>
+        </ion-select>
+    </ion-item>
   </form>
 
   <ion-fab top right edge>

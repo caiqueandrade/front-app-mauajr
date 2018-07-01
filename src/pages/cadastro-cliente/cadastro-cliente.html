@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Novo Cliente</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <form (ngSubmit)="cadastrarCliente()" #formulario="ngForm">
+    <ion-item>
+      <ion-label stacked>Nome:</ion-label>
+      <ion-input [(ngModel)]="nome" name="nome"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>CNPJ:</ion-label>
+      <ion-input [(ngModel)]="cnpj" name="cnpj"></ion-input>
+    </ion-item>
+  </form>
+
+  <ion-fab top right edge>
+    <button ion-fab (click)="formulario.ngSubmit.emit()">
+      <ion-icon name="send"></ion-icon>
+    </button>
+  </ion-fab>
+</ion-content>

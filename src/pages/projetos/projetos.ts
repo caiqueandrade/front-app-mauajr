@@ -10,6 +10,7 @@ import { NavLifecycles } from '../../utils/ionic/nav/nav-lifecycles';
   selector: 'page-projetos',
   templateUrl: 'projetos.html',
 })
+
 export class ProjetosPage implements NavLifecycles {
 
   public projetos: Projeto[];
@@ -21,7 +22,6 @@ export class ProjetosPage implements NavLifecycles {
               private _projetosService: ProjetosServiceProvider){}
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ProjetosPage');
 
     let loading = this._loadingCtrl.create({
       content: 'Carregando os dados...'
@@ -30,25 +30,25 @@ export class ProjetosPage implements NavLifecycles {
     loading.present();
     
     this._projetosService.list()
-              .subscribe(
-                (projetos) => {
-                  this.projetos = projetos;
-                  loading.dismiss();
-                }, 
-                (err: HttpErrorResponse) => {
-                  console.log(err);
+        .subscribe(
+          (projetos) => {
+            this.projetos = projetos;
+            loading.dismiss();
+          }, 
+          (err: HttpErrorResponse) => {
+            console.log(err);
 
-                  loading.dismiss();
+            loading.dismiss();
 
-                  this._alertCtrl.create({
-                    title: 'Falha na conexão',
-                    subTitle: 'Não foi possível carregar os dados. Tente novamente!',
-                    buttons: [
-                      {text: 'Ok'}
-                    ]
-                  }).present()
-                }
-              );
+            this._alertCtrl.create({
+              title: 'Falha na conexão',
+              subTitle: 'Não foi possível carregar os dados. Tente novamente!',
+              buttons: [
+                {text: 'Ok'}
+              ]
+            }).present()
+          }
+        );
   }
 
 }

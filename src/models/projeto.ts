@@ -5,6 +5,6 @@ export interface Projeto {
     data_inicio: string;
     // data_fim: Date;
     status: number;
-    // cliente_id: number;
-    // faturamento_id: number;
+    cliente_id: number;
+    faturamento_id: number;
 }
