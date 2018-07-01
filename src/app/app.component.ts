@@ -7,6 +7,7 @@ import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { LoginPage } from '../pages/login/login';
 import { ProjetosPage } from '../pages/projetos/projetos';
+import { AreasPage } from '../pages/areas/areas';
 
 @Component({
   templateUrl: 'app.html'
@@ -26,7 +27,7 @@ export class MyApp {
       // { title: 'Home', component: HomePage },
       // { title: 'List', component: ListPage },
       { title: 'Novo Projeto', component: HomePage },
-      { title: 'Departamentos', component: HomePage },
+      { title: 'Áreas de Atuação', component: AreasPage },
       { title: 'Projetos', component: ProjetosPage },
       { title: 'Configurações', component: HomePage }
     ];

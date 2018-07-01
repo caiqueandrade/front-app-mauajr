@@ -12,6 +12,8 @@ import { LoginPage } from '../pages/login/login';
 import { ProjetosPage } from '../pages/projetos/projetos';
 import { HttpClientModule } from '@angular/common/http';
 import { ProjetosServiceProvider } from '../providers/projetos-service/projetos-service';
+import { AreasPage } from '../pages/areas/areas';
+import { AreasServiceProvider } from '../providers/areas-service/areas-service';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,8 @@ import { ProjetosServiceProvider } from '../providers/projetos-service/projetos-
     HomePage,
     ListPage,
     LoginPage,
-    ProjetosPage
+    ProjetosPage,
+    AreasPage
   ],
   imports: [
     BrowserModule,
@@ -32,13 +35,15 @@ import { ProjetosServiceProvider } from '../providers/projetos-service/projetos-
     HomePage,
     ListPage,
     LoginPage,
-    ProjetosPage
+    ProjetosPage,
+    AreasPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    ProjetosServiceProvider
+    ProjetosServiceProvider,
+    AreasServiceProvider
   ]
 })
 export class AppModule {}
