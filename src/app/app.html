@@ -1,29 +1,25 @@
-<ion-menu [content]="content">
-  <ion-header no-border>
-    <ion-toolbar>
-    	<ion-list color="primary">
-			<ion-item>
-				<ion-avatar item-start>
-					<img src="https://images.vexels.com/media/users/3/145908/preview2/52eabf633ca6414e60a7677b0b917d92-criador-de-avatar-masculino.jpg" alt="">
-				</ion-avatar>
-				<span>Caíque Andrade</span>
+<ion-split-pane>
+	<ion-menu [content]="content">
+		<ion-content>
+
+			<ion-item id="cabecalho-menu" class="cabecalho-menu">
+				<div>
+					<ion-avatar ion-start>
+						<img src="assets/imgs/woman-avatar.jpg" alt="imagem de perfil">
+					</ion-avatar>
+				</div>
+				<h2>Caíque Andrade</h2>
+				<p>Núcleo de Tecnologia</p>
 			</ion-item>
-			<p>caiquembandrade@gmail.com</p>
-			<p>Núcleo de Tecnologia</p>
-			<p>Consultor</p>
-      	</ion-list>
-    </ion-toolbar>
-  </ion-header>
 
-  <ion-content>
-    <ion-list>
-      <button menuClose ion-item *ngFor="let p of pages" (click)="irPagina(p)">
-        {{p.title}}
-      </button>
-    </ion-list>
-  </ion-content>
+			<ion-list no-lines>
+				<button menuClose ion-item *ngFor="let p of pages" (click)="irPagina(p)">
+					{{p.title}}
+				</button>
+			</ion-list>
+		</ion-content>
+  	</ion-menu>
 
-</ion-menu>
-
-<!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
-<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>
+  	<!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
+	<ion-nav [root]="rootPage" main #content swipeBackEnabled="false"></ion-nav>
+</ion-split-pane>

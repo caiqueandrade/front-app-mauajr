@@ -10,6 +10,7 @@ import { ProjetosPage } from '../pages/projetos/projetos';
 import { AreasPage } from '../pages/areas/areas';
 
 @Component({
+  selector: 'myapp',
   templateUrl: 'app.html'
 })
 export class MyApp {
