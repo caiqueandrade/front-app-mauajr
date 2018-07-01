@@ -1,28 +1,26 @@
-<!-- <ion-header>
+<ion-content scroll="false">
+	<div class="splash-bg"></div>
+	<div class="splash-info">
+		<div class="splash-logo"></div>
+		<div class="splash-intro">
+			Mauá Jr.
+		</div>
+	</div>
 
-  <ion-navbar>
-    <ion-title>Login</ion-title>
-  </ion-navbar>
+	<div padding>
+		<form (ngSubmit)="fazerLogin()">
+			<ion-item>
+				<ion-label stacked>E-mail</ion-label>
+				<ion-input [(ngModel)]="email" name="email" type="text"></ion-input>
+			</ion-item>
 
-</ion-header> -->
+			<ion-item>
+				<ion-label stacked>Senha</ion-label>
+				<ion-input [(ngModel)]="senha" name="senha" type="password"></ion-input>
+			</ion-item>
 
-
-<ion-content  padding>
-  <img src="https://pbs.twimg.com/profile_images/532620685097439232/CVChDm5W_400x400.png" alt="">
-  
-  <ion-list >
-    <ion-item>
-      <ion-label stacked>Username</ion-label>
-      <ion-input type="text"></ion-input>
-    </ion-item>
-    
-    <ion-item>
-      <ion-label stacked>Password</ion-label>
-      <ion-input type="password"></ion-input>
-    </ion-item>
-  </ion-list>
-
-  <button ion-button block>Login</button>
-
-  <p ion-text text-center>Esqueceu a senha?</p>
+			<button ion-button block type="submit" class="login">Entrar</button>
+		</form>
+	</div>
 </ion-content>
+

@@ -14,6 +14,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { ProjetosServiceProvider } from '../providers/projetos-service/projetos-service';
 import { AreasPage } from '../pages/areas/areas';
 import { AreasServiceProvider } from '../providers/areas-service/areas-service';
+import { UsuariosServiceProvider } from '../providers/usuarios-service/usuarios-service';
+
+import 'rxjs/add/operator/do';
 
 @NgModule({
   declarations: [
@@ -43,7 +46,8 @@ import { AreasServiceProvider } from '../providers/areas-service/areas-service';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     ProjetosServiceProvider,
-    AreasServiceProvider
+    AreasServiceProvider,
+    UsuariosServiceProvider
   ]
 })
 export class AppModule {}
