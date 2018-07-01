@@ -16,6 +16,7 @@ import { AreasPage } from '../pages/areas/areas';
 import { AreasServiceProvider } from '../providers/areas-service/areas-service';
 import { UsuariosServiceProvider } from '../providers/usuarios-service/usuarios-service';
 
+import 'rxjs/add/operator/finally';
 import 'rxjs/add/operator/do';
 
 @NgModule({

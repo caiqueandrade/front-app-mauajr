@@ -8,6 +8,7 @@ import { ListPage } from '../pages/list/list';
 import { LoginPage } from '../pages/login/login';
 import { ProjetosPage } from '../pages/projetos/projetos';
 import { AreasPage } from '../pages/areas/areas';
+import { CadastroProjetoPage } from '../pages/cadastro-projeto/cadastro-projeto';
 
 @Component({
   selector: 'myapp',
@@ -27,7 +28,7 @@ export class MyApp {
     this.pages = [
       // { title: 'Home', component: HomePage },
       // { title: 'List', component: ListPage },
-      { title: 'Novo Projeto', component: HomePage },
+      { title: 'Novo Projeto', component: CadastroProjetoPage.name },
       { title: 'Áreas de Atuação', component: AreasPage },
       { title: 'Projetos', component: ProjetosPage },
       { title: 'Configurações', component: HomePage }

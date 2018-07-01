@@ -1,0 +1,38 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Novo Projeto</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <form (ngSubmit)="cadastrarProjeto()" #formulario="ngForm">
+    <ion-item>
+      <ion-label stacked>Nome:</ion-label>
+      <ion-input [(ngModel)]="nome" name="nome"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Descrição:</ion-label>
+      <ion-input [(ngModel)]="descricao" name="descricao"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Data de Início:</ion-label>
+      <ion-datetime [(ngModel)]="data_inicio" name="data_inicio" displayFormat="DD/MM/YY"></ion-datetime>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Status:</ion-label>
+      <ion-input [(ngModel)]="status" name="status"></ion-input>
+    </ion-item>
+  </form>
+
+  <ion-fab top right edge>
+    <button ion-fab (click)="formulario.ngSubmit.emit()">
+      <ion-icon name="send"></ion-icon>
+    </button>
+  </ion-fab>
+</ion-content>
