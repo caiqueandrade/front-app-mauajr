@@ -31,8 +31,8 @@
 
     <ion-item>
       <ion-label>Cliente</ion-label>
-      <ion-select>
-        <ion-option *ngFor="let cliente of clientes">
+      <ion-select [(ngModel)]="clienteSelecionado" name="clienteSelecionado" multiple="false">
+        <ion-option *ngFor="let cliente of clientes" [value]="cliente">
           {{ cliente.nome }}
         </ion-option>
       </ion-select>
@@ -40,9 +40,9 @@
 
     <ion-item>
         <ion-label>Faturamento</ion-label>
-        <ion-select>
-          <ion-option *ngFor="let faturamento of faturamentos">
-            {{ faturamento.valor }}
+        <ion-select [(ngModel)]="faturamentoSelecionado" name="faturamentoSelecionado" multiple="false">
+          <ion-option *ngFor="let faturamento of faturamentos" [value]="faturamento">
+            R$ {{ faturamento.valor }}
           </ion-option>
         </ion-select>
     </ion-item>

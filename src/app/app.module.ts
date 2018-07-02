@@ -19,6 +19,7 @@ import { UsuariosServiceProvider } from '../providers/usuarios-service/usuarios-
 import 'rxjs/add/operator/finally';
 import 'rxjs/add/operator/do';
 import { ClientesServiceProvider } from '../providers/clientes-service/clientes-service';
+import { FaturamentosServiceProvider } from '../providers/faturamentos-service/faturamentos-service';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { ClientesServiceProvider } from '../providers/clientes-service/clientes-
     ProjetosServiceProvider,
     AreasServiceProvider,
     UsuariosServiceProvider,
-    ClientesServiceProvider
+    ClientesServiceProvider,
+    FaturamentosServiceProvider
   ]
 })
 export class AppModule {}

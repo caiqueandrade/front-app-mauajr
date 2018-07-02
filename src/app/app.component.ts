@@ -10,6 +10,7 @@ import { ProjetosPage } from '../pages/projetos/projetos';
 import { AreasPage } from '../pages/areas/areas';
 import { CadastroProjetoPage } from '../pages/cadastro-projeto/cadastro-projeto';
 import { CadastroClientePage } from '../pages/cadastro-cliente/cadastro-cliente';
+import { CadastroFaturamentoPage } from '../pages/cadastro-faturamento/cadastro-faturamento';
 
 @Component({
   selector: 'myapp',
@@ -29,6 +30,7 @@ export class MyApp {
     this.pages = [
       // { title: 'Home', component: HomePage },
       // { title: 'List', component: ListPage },
+      { title: 'Novo Faturamento', component: CadastroFaturamentoPage.name },
       { title: 'Novo Cliente', component: CadastroClientePage.name },
       { title: 'Novo Projeto', component: CadastroProjetoPage.name },
       { title: 'Áreas de Atuação', component: AreasPage },
@@ -48,7 +50,7 @@ export class MyApp {
   }
 
   irPagina(p){
-    console.log(p);
+    // console.log(p);
     this.nav.push(p.component);
   }
 

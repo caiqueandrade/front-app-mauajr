@@ -5,11 +5,13 @@ import { HomePage } from '../home/home';
 import { Projeto } from '../../models/projeto';
 
 import 'rxjs/add/operator/finally';
+
 import { HttpErrorResponse } from '@angular/common/http';
 import { NavLifecycles } from '../../utils/ionic/nav/nav-lifecycles';
 import { Cliente } from '../../models/cliente';
 import { ClientesServiceProvider } from '../../providers/clientes-service/clientes-service';
-
+import { Faturamento } from '../../models/faturamento';
+import { FaturamentosServiceProvider } from '../../providers/faturamentos-service/faturamentos-service';
 
 @IonicPage()
 @Component({
@@ -20,14 +22,17 @@ import { ClientesServiceProvider } from '../../providers/clientes-service/client
 export class CadastroProjetoPage implements NavLifecycles {
 
   public clientes: Cliente[];
+  public faturamentos: Faturamento[];
 
   public nome: string = '';
   public descricao: string = '';
   // public data_inicio: string = new Date().toISOString();
   public data_inicio: string = '20180922';
   public status: number;
-  public cliente_id: number;
-  public faturamento_id: number;
+  // public cliente_id: number;
+  // public faturamento_id: number;
+  public clienteSelecionado: Cliente;
+  public faturamentoSelecionado: Faturamento;
 
   private _alerta: Alert;
 
@@ -36,27 +41,27 @@ export class CadastroProjetoPage implements NavLifecycles {
               private _loadingCtrl: LoadingController,
               private _alertCtrl: AlertController,
               private _projetosService: ProjetosServiceProvider,
-              private _clientesService: ClientesServiceProvider) {
-
-  }
+              private _clientesService: ClientesServiceProvider,
+              private _faturamentosService: FaturamentosServiceProvider) {  }
 
   ionViewDidLoad(){
-    let loading = this._loadingCtrl.create({
+    // CLIENTES
+    let loadingClientes = this._loadingCtrl.create({
       content: 'Carregando os dados...'
     });
 
-    loading.present();
+    loadingClientes.present();
 
     this._clientesService.listarClientes()
         .subscribe(
           (clientes) => {
             this.clientes = clientes;
-            loading.dismiss();
+            loadingClientes.dismiss();
           },
           (err: HttpErrorResponse) => {
             console.log(err);
 
-            loading.dismiss();
+            loadingClientes.dismiss();
 
             this._alertCtrl.create({
               title: 'Falha na conexão',
@@ -68,29 +73,39 @@ export class CadastroProjetoPage implements NavLifecycles {
           }
         );
 
-    // this._clientesService.listarClientes()
-    //     .subscribe(
-    //       (clientes) => {
-    //         this.clientes = clientes;
-    //         loading.dismiss();
-    //       },
-    //       (err: HttpErrorResponse) => {
-    //         console.log(err);
+    // FATURAMENTOS
+    let loadingFaturamentos = this._loadingCtrl.create({
+      content: 'Carregando os dados...'
+    });
 
-    //         loading.dismiss();
+    loadingFaturamentos.present();
 
-    //         this._alertCtrl.create({
-    //           title: 'Falha na conexão',
-    //           subTitle: 'Não foi possível carregar os dados. Tente novamente mais tarde.',
-    //           buttons: [
-    //             {text: 'Ok'}
-    //           ]
-    //         }).present();
-    //       }
-    //     );
+    this._faturamentosService.listarFaturamentos()
+        .subscribe(
+          (faturamentos) => {
+            this.faturamentos = faturamentos;
+            loadingFaturamentos.dismiss();
+          },
+          (err: HttpErrorResponse) => {
+            console.log(err);
+
+            loadingFaturamentos.dismiss();
+
+            this._alertCtrl.create({
+              title: 'Falha na conexão',
+              subTitle: 'Não foi possível carregar os dados. Tente novamente mais tarde.',
+              buttons: [
+                {text: 'Ok'}
+              ]
+            }).present();
+          }
+        );
   }
 
   cadastrarProjeto(){
+    console.log(this.clienteSelecionado.id);
+    console.log(this.faturamentoSelecionado.id);
+
     if(!this.nome || !this.descricao || !this.status){
       this._alertCtrl.create({
         title: 'Aviso',
@@ -103,13 +118,13 @@ export class CadastroProjetoPage implements NavLifecycles {
       return;
     }
 
-    let projeto: Projeto = {
+    let projeto = {
       nome: this.nome,
       descricao: this.descricao,
       data_inicio: this.data_inicio,
       status: this.status,
-      cliente_id: this.cliente_id,
-      faturamento_id: this.faturamento_id
+      cliente_id: this.clienteSelecionado.id,
+      faturamento_id: this.faturamentoSelecionado.id
     }
 
     this._alerta = this._alertCtrl.create({

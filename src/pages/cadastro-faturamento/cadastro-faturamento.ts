@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController, Alert } from 'ionic-angular';
-import { ClientesServiceProvider } from '../../providers/clientes-service/clientes-service';
-import { Cliente } from '../../models/cliente'
+import { FaturamentosServiceProvider } from '../../providers/faturamentos-service/faturamentos-service';
+import { Faturamento } from '../../models/faturamento';
 import { HomePage } from '../home/home';
 import { HttpErrorResponse } from '@angular/common/http';
 
@@ -9,26 +9,26 @@ import 'rxjs/add/operator/finally';
 
 @IonicPage()
 @Component({
-  selector: 'page-cadastro-cliente',
-  templateUrl: 'cadastro-cliente.html',
+  selector: 'page-cadastro-faturamento',
+  templateUrl: 'cadastro-faturamento.html',
 })
 
-export class CadastroClientePage {
+export class CadastroFaturamentoPage {
 
-  public nome: string = '';
-  public cnpj: string = '';
+  public valor: number;
+  public data_pagamento: string;
 
   private _alerta: Alert;
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               private _alertCtrl: AlertController,
-              private _clientesService: ClientesServiceProvider) { }
+              private _faturamentosService: FaturamentosServiceProvider) {  }
 
-  cadastrarCliente(){
-    let cliente: Cliente = {
-      nome: this.nome,
-      cnpj: this.cnpj
+  cadastrarFaturamento(){
+    let faturamento: Faturamento = {
+      valor: this.valor,
+      data_pagamento: this.data_pagamento
     }
 
     this._alerta = this._alertCtrl.create({
@@ -45,7 +45,7 @@ export class CadastroClientePage {
 
     let mensagem = '';
 
-    this._clientesService.cadastrarCliente(cliente)
+    this._faturamentosService.cadastrarFaturamento(faturamento)
         .finally(
           () => {
             this._alerta.setSubTitle(mensagem);
@@ -54,14 +54,15 @@ export class CadastroClientePage {
         )
         .subscribe(
           () => {
-            mensagem = 'Cliente cadastrado com sucesso.';
+            mensagem = 'Faturamento cadastrado com sucesso'
           },
           (err: HttpErrorResponse) => {   // API cadastra o cliente mas retorna
                                           // um erro de parse, por isso entra aqui
             console.log(err);
             
-            mensagem = 'Falha ao cadastrar cliente. Tente novamente.';
+            mensagem = 'Falha ao cadastrar faturamento. Tente novamente.';
           }
         );
   }
+
 }

@@ -1,0 +1,28 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Novo Faturamento</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <form (ngSubmit)="cadastrarFaturamento()" #formulario="ngForm">
+    <ion-item>
+      <ion-label stacked>Valor:</ion-label>
+      <ion-input [(ngModel)]="valor" name="valor"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Data do Pagamento:</ion-label>
+      <ion-input [(ngModel)]="data_pagamento" name="data_pagamento"></ion-input>
+    </ion-item>
+  </form>
+
+  <ion-fab top right edge>
+    <button ion-fab (click)="formulario.ngSubmit.emit()">
+      <ion-icon name="send"></ion-icon>
+    </button>
+  </ion-fab>
+</ion-content>
