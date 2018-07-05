@@ -7,11 +7,19 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content>
+  <!-- <ion-list>
+    <ion-item *ngFor="let projeto of projetos" (click)="selecionaProjeto(projeto)">
+      <h2>{{ projeto.nome }}</h2>
+      <p>{{ projeto.descricao }}</p>
+    </ion-item>
+  </ion-list> -->
+
   <ion-list>
     <ion-item *ngFor="let projeto of projetos">
       <h2>{{ projeto.nome }}</h2>
       <p>{{ projeto.descricao }}</p>
+      <button ion-button outline item-end (click)="selecionaProjeto(projeto)">Ver</button>
     </ion-item>
   </ion-list>
 </ion-content>

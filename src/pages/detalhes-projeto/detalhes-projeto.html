@@ -1,0 +1,84 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-buttons end>
+      <button ion-button icon-only color="dark">
+        <ion-icon ios="ios-create-outline" md="md-create"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>Detalhes</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header class="titulo">
+      {{ projeto.nome }}
+    </ion-card-header>
+    
+    <ion-card-content>
+      <p>{{ projeto.descricao }}</p>
+
+      <ion-list no-lines>
+        <ion-item class="item">
+          <span item-start class="titulo">Núcleo:</span>
+          <span item-end>Tecnologia</span>
+        </ion-item>
+
+        <ion-item class="item">
+          <span item-start class="titulo">Consultor:</span>
+          <button ion-button outline item-end (click)="mostrarToast()">Mostrar</button>
+        </ion-item>
+
+        <ion-item class="item">
+          <span item-start class="titulo">Início:</span>
+          <span item-end>13/06/18</span>
+        </ion-item>
+
+        <ion-item class="item">
+          <span item-start class="titulo">Fim:</span>
+          <span item-end>15/02/19</span>
+        </ion-item>
+
+        <ion-item class="item">
+          <span item-start class="titulo">Status:</span>
+          <span item-end>Aprovado</span>
+        </ion-item>
+
+        <ion-item class="item">
+          <span item-start class="titulo">Cliente:</span>
+          <span item-end>Carlos Alberto</span>
+        </ion-item>
+
+        <ion-item class="item">
+          <span item-start class="titulo">Faturamento:</span>
+          <span item-end>R$ 14.250,00</span>
+        </ion-item>
+      </ion-list>
+
+      <!-- <ion-grid class="grid">
+        <ion-row>
+          <ion-col col-5 class="titulo">Início:</ion-col>
+          <ion-col col-7>{{ projeto.data_inicio }}</ion-col>
+        </ion-row>
+
+        <ion-row class="linha">
+          <ion-col col-5 class="titulo">Status:</ion-col>
+          <ion-col col-7>{{ projeto.status }}</ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col col-5 class="titulo">Cliente:</ion-col>
+          <ion-col col-7>Caique Andrade</ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col col-5 class="titulo">Faturamento:</ion-col>
+          <ion-col col-7>R$ 12.400,00</ion-col>
+        </ion-row>
+      </ion-grid> -->
+
+    </ion-card-content>
+  </ion-card>
+</ion-content>

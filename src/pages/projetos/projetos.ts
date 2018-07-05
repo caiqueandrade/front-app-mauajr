@@ -4,6 +4,7 @@ import { Projeto } from '../../models/projeto';
 import { HttpErrorResponse } from '@angular/common/http';
 import { ProjetosServiceProvider } from '../../providers/projetos-service/projetos-service';
 import { NavLifecycles } from '../../utils/ionic/nav/nav-lifecycles';
+import { DetalhesProjetoPage } from '../detalhes-projeto/detalhes-projeto';
 
 @IonicPage()
 @Component({
@@ -49,6 +50,13 @@ export class ProjetosPage implements NavLifecycles {
             }).present()
           }
         );
+  }
+
+  selecionaProjeto(projeto: Projeto){
+    console.log(projeto);
+    this.navCtrl.push(DetalhesProjetoPage, {
+      projetoSelecionado: projeto
+    });
   }
 
 }

@@ -20,6 +20,7 @@ import 'rxjs/add/operator/finally';
 import 'rxjs/add/operator/do';
 import { ClientesServiceProvider } from '../providers/clientes-service/clientes-service';
 import { FaturamentosServiceProvider } from '../providers/faturamentos-service/faturamentos-service';
+import { DetalhesProjetoPage } from '../pages/detalhes-projeto/detalhes-projeto';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { FaturamentosServiceProvider } from '../providers/faturamentos-service/f
     ListPage,
     LoginPage,
     ProjetosPage,
-    AreasPage
+    AreasPage,
+    DetalhesProjetoPage
   ],
   imports: [
     BrowserModule,
@@ -42,7 +44,8 @@ import { FaturamentosServiceProvider } from '../providers/faturamentos-service/f
     ListPage,
     LoginPage,
     ProjetosPage,
-    AreasPage
+    AreasPage,
+    DetalhesProjetoPage
   ],
   providers: [
     StatusBar,

@@ -1,0 +1,23 @@
+page-detalhes-projeto {
+    // ion-grid.grid{
+    //     padding-left: 0;
+    // }
+
+    ion-card-header span.titulo{
+        font-weight: bold;
+    }
+
+    ion-card-content p{
+        margin-bottom: 100px;
+    }
+
+    ion-item.item{
+        padding-left: 0;
+        font-size: 14px;
+    }
+
+    ion-item span.titulo{
+        padding-left: 0;
+        font-weight: bold;
+    }
+}
