@@ -38,7 +38,15 @@ $colors: (
   secondary:  #32db64,
   danger:     #f53d3d,
   light:      #f4f4f4,
-  dark:       #222
+  dark:       #222,
+
+  // Personalizadas
+  positive:   rgba(30, 136, 229, 1),
+  balanced:   rgba(67, 160, 71, 1),
+  energized:  rgba(253, 216, 53, 1),
+  attention:  rgba(251, 140, 0, 1),
+  mashed:     rgba(121, 85, 72, 1),
+  royal:      rgba(156, 39, 176, 1)
 );
 
 

@@ -3,26 +3,56 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Home</ion-title>
+    <ion-title>Home - Analytics</ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content class="card-background-page">
+<ion-content>
   <ion-card>
-    <img src="https://ionicframework.com/dist/preview-app/www/assets/img/card-saopaolo.png"/>
-    <div class="card-title">Mauá Jr.</div>
-    <div class="card-subtitle">Estatísticas</div>
+    <ion-item class="item-projetos">
+      <ion-icon name="body" item-start></ion-icon>
+      Membros Ativos
+      <ion-badge color="positive" item-end>52</ion-badge>
+    </ion-item>
+
+    <ion-item class="item-projetos">
+      <ion-icon name="hammer" item-start></ion-icon>
+      Número de Projetos
+      <ion-badge color="positive" item-end>3</ion-badge>
+    </ion-item>
+
+    <ion-item class="item-clientes">
+      <ion-icon name="contact" item-start></ion-icon>
+      Número de Clientes
+      <ion-badge color="positive" item-end>3</ion-badge>
+    </ion-item>
+
+    <ion-item class="item-faturamento">
+      <ion-icon name="logo-usd" item-start></ion-icon>
+      Faturamento Total
+      <ion-badge color="positive" item-end>R$ 37.467,20</ion-badge>
+    </ion-item>
   </ion-card>
-  
+
   <ion-card>
-    <img src="https://ionicframework.com/dist/preview-app/www/assets/img/card-amsterdam.png"/>
-    <div class="card-title">Calendar</div>
-    <div class="card-subtitle">Agenda</div>
+    <ion-card-header>
+      Projetos e Clientes
+      <p class="sub-titulo">Trimestre</p>
+    </ion-card-header>
+
+    <ion-card-content>
+      <canvas #projCliLineCanvas></canvas>
+    </ion-card-content>
   </ion-card>
-  
+
   <ion-card>
-    <img src="https://ionicframework.com/dist/preview-app/www/assets/img/card-sf.png"/>
-    <div class="card-title">Documentos</div>
-    <div class="card-subtitle">ATAs</div>
+    <ion-card-header>
+      Projetos
+      <p class="sub-titulo">Por núcleo</p>
+    </ion-card-header>
+
+    <ion-card-content>
+      <canvas #projNucDoughnutCanvas></canvas>
+    </ion-card-content>
   </ion-card>
 </ion-content>
