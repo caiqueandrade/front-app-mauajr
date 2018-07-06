@@ -1,7 +1,7 @@
 // http://ionicframework.com/docs/theming/
 
 ion-header ion-icon{
-    color: #222;
+    color: map-get($colors, positive);
 }
 
 // App Global Sass
